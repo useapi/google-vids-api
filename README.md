@@ -5,6 +5,7 @@ Runnable examples for the [Google Vids API](https://useapi.net/docs/api-google-v
 | Example | What it does | Tutorial | Tutorial date |
 |---|---|---|---|
 | [`influencer-avatars/`](./influencer-avatars) | Two voiced avatars (one from a portrait, one from a description) present a product in a 10-second clip, extended to 30 seconds, with the first 20 seconds upscaled to 1080p. Node.js and Python | [How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars) | October 7, 2026 |
+| [`skills/google-vids-video/`](./skills/google-vids-video) | **Agent skill** for Claude Code, Codex and other coding agents: ask for a clip and the agent makes it with **Omni 1.1 Flash** in Vids (voiced AI avatars, reference images, extend, 1080p upscale, edit) and downloads the `.mp4`, never paying twice for a request. Install: `npx skills add useapi/google-vids-api --skill google-vids-video`. Bash, curl, jq | [SKILL.md](./skills/google-vids-video/SKILL.md) | October 8, 2026 |
 | [`watermark-remover/`](./watermark-remover) | Removes the visible Gemini ✦ sparkle from Vids videos by reverse alpha blending, in all four Vids formats, for clips as generated and their upscales (not extended or edited clips). Python | [Google Vids API › Watermark](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#watermark) | October 8, 2026 |
 
 ## Quick start

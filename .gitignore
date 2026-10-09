@@ -15,3 +15,4 @@ output/
 result.json
 *_state.json
 _*.*
+!skills/**/scripts/_common.sh
