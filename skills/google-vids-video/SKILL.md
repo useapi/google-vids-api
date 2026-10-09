@@ -113,7 +113,7 @@ Every option: https://useapi.net/docs/api-google-vids-v1
 
 ## Timeouts and resuming without paying twice
 
-The generation scripts send each request **once and never retry it**: a request resent after an unclear failure could be charged twice. If a run is interrupted after `job user:...-job:...` was logged, do **not** run it again. Resume with the job id:
+The generation scripts send each request **once and never retry it**: a request resent after an unclear failure could be charged twice. If a run is interrupted after `job j...-bot:google-vids` was logged, do **not** run it again. Resume with the job id:
 
 ```bash
 scripts/wait-job.sh "<jobid>" > job.json && scripts/download.sh job.json

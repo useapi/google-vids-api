@@ -16,7 +16,7 @@ case "$SRC" in
     JOB=$(cat "$SRC")
     MEDIA=$(jq -r '.result.mediaId // empty' <<< "$JOB")
     [ -n "$MEDIA" ] || { echo "The job has no result to download: $(jq -c '{status, error}' <<< "$JOB")" >&2; exit 1; }
-    LABEL=$(jq -r '[(.mode // .type // "video"), ((.jobid // "") | capture("-job:(?<u>[0-9a-f]{8})").u // empty)] | join("_")' <<< "$JOB") ;;
+    LABEL=$(jq -r '[(.mode // .type // "video"), ((.jobid // "") | capture("^j(?<t>[0-9]{13})").t // empty)] | join("_")' <<< "$JOB") ;;
 esac
 case "$MEDIA" in *-image:*) EXT=jpg ;; *) EXT=mp4 ;; esac
 if [ -z "$NAME" ]; then
