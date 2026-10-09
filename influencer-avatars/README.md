@@ -93,7 +93,7 @@ The script sends a request again only when nothing was made:
 - `502` from `POST /avatars` ("Google did not keep the avatar"),
 - a job that failed with `429` because Google limits the account for a minute (after its `retryAt`).
 
-A job that fails for any other reason stops the script, because Google may have made and charged the clip before the job failed. In our test, a job that failed with `503` "Google answered without a video" used the clip's seconds. Run the script again to retry that step. If a POST gets no answer at all, the script stops too, because the job may have been accepted. The script stops with the API's message:
+A job that fails for any other reason stops the script, because Google may have made and charged the clip before the job failed. For example, a job that fails with `502` means Google answered but the API could not read the file: Google may already have made and charged it, so report the `jobid` to support rather than paying for it twice. Run the script again to retry that step. If a POST gets no answer at all, the script stops too, because the job may have been accepted. The script stops with the API's message:
 
 | Error | What to do |
 |---|---|
