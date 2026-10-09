@@ -1,0 +1,56 @@
+{
+  "images": [
+    {
+      "name": "mia-portrait",
+      "aspectRatio": "9:16",
+      "style": "photography",
+      "prompt": "Full-length studio portrait of a confident 24-year-old female fashion influencer, platinum bob, oversized cream hoodie, wide-leg cargo pants, gold hoops, plain light-grey backdrop, facing camera"
+    },
+    {
+      "name": "aeroloop",
+      "aspectRatio": "16:9",
+      "style": "photography",
+      "prompt": "The AeroLoop sneaker: chunky white-and-electric-blue running shoe with a translucent air sole, on a concrete pedestal, dramatic side light, dark background"
+    }
+  ],
+  "avatars": [
+    {
+      "name": "Mia",
+      "voice": "Aoede",
+      "image": "mia-portrait"
+    },
+    {
+      "name": "Leo",
+      "voice": "Puck",
+      "shot": "upper-body",
+      "appearance": "a 26-year-old white European male streetwear influencer with short textured hair with a fade and a confident half-smile",
+      "outfit": "black puffer vest over a white tee, silver chain"
+    }
+  ],
+  "launch": {
+    "name": "launch-10s",
+    "avatar_1": "Mia",
+    "avatar_2": "Leo",
+    "referenceImage_1": "aeroloop",
+    "duration": 10,
+    "resolution": "720p",
+    "aspectRatio": "landscape",
+    "prompt": "@avatar_1, holding @referenceImage_1 in both hands at chest height, and @avatar_2 stand side by side on a well-lit stage in a small, intimate theater at a sneaker launch, shown full length from head to toe in a wide, steady shot. Behind them a large LED backdrop glows with soft white-and-blue light that moves in slow, gentle waves, with the words \"WEAR AEROLOOP\" in large, clean, bold white letters across the middle of the screen. The two of them stand on the lower part of the stage, so the words \"WEAR AEROLOOP\" stay fully readable above their heads. Bright, even stage lighting on both of them. The audience sits in the dark in front of the stage, only the tops of a few heads barely visible at the bottom of the frame. @avatar_1 keeps holding @referenceImage_1 the whole time and says: \"Say hi to the AeroLoop!\" @avatar_2 turns to her, smiles and says: \"Lighter than anything we've ever worn.\" Simple, uncluttered composition, the two of them clearly the focus."
+  },
+  "extends": [
+    {
+      "name": "launch-20s",
+      "duration": 10,
+      "prompt": "A young man in a red hoodie climbs onto the stage from the front right edge and plants himself to the right of the man in the black puffer vest, an arm's length away, so all three stand apart in a row with nobody overlapping. Visibly overexcited, he waves a thick stack of banknotes in his right hand above his head and screams: \"Take my money!\" The man in the black puffer vest laughs, raises both palms toward him and says: \"Whoa, whoa, buddy, be patient!\" The blonde woman in the cream hoodie laughs, holding the sneaker. Only these three people are on stage. Same stage, same LED screen with WEAR AEROLOOP, same wide steady shot."
+    },
+    {
+      "name": "launch-30s",
+      "duration": 10,
+      "prompt": "The blonde woman in the cream hoodie turns to the camera with a big smile and says: \"AeroLoop drops Friday. Link in bio!\" Right after that, the young man in the red hoodie throws ALL of his banknotes out over the audience in one big toss, keeping none, and the bills flutter down over their heads. From then on his hands are completely empty: he holds no money at all. Then all three cheer together, the man in the black puffer vest and the young man in the red hoodie throwing their empty fists in the air, as blue and white confetti rains down over the stage. Only these three people are on stage. Same stage, same LED screen with WEAR AEROLOOP, same wide steady shot."
+    }
+  ],
+  "upscale": {
+    "name": "launch-20s-1080p",
+    "clip": "launch-20s"
+  }
+}

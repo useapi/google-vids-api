@@ -1,0 +1,9 @@
+{
+  "name": "google-vids-api",
+  "version": "1.0.0",
+  "description": "Runnable examples for the Google Vids API by useapi.net: Gemini Omni 1.1 Flash video with voiced avatars, extends and 1080p upscale, plus a remover for the visible Gemini watermark.",
+  "author": "useapi.net",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://useapi.net/docs/api-google-vids-v1"
+}

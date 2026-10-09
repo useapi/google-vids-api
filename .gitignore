@@ -1,0 +1,17 @@
+node_modules
+.vscode
+.env
+__pycache__
+output/
+
+# Generated media and run state (keep the README images)
+*.mp4
+*.m4a
+*.png
+*.jpg
+*.jpeg
+*.webp
+!watermark-remover/before-after.jpg
+result.json
+*_state.json
+_*.*
