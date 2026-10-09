@@ -12,6 +12,9 @@ Only the small area around the star is changed; the audio is copied untouched.
 
 The invisible SynthID watermark Google also embeds is not affected.
 
+Works on clips as generated and on upscales of them, not on extended or edited clips: those give the marked clip back
+to the model, which repaints the star into the picture, so a faint diamond remains.
+
 Requirements: Python 3.8+, numpy (pip install numpy), ffmpeg and ffprobe on PATH.
 
 Usage:

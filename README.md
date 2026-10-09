@@ -5,7 +5,7 @@ Runnable examples for the [Google Vids API](https://useapi.net/docs/api-google-v
 | Example | What it does | Tutorial | Tutorial date |
 |---|---|---|---|
 | [`influencer-avatars/`](./influencer-avatars) | Two voiced avatars (one from a portrait, one from a description) present a product in a 10-second clip, extended to 30 seconds, with the first 20 seconds upscaled to 1080p. Node.js and Python | [How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars) | October 7, 2026 |
-| [`watermark-remover/`](./watermark-remover) | Removes the visible Gemini ✦ sparkle from Vids videos by reverse alpha blending, in all four Vids formats. Python | [Google Vids API › Watermark](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#watermark) | October 8, 2026 |
+| [`watermark-remover/`](./watermark-remover) | Removes the visible Gemini ✦ sparkle from Vids videos by reverse alpha blending, in all four Vids formats, for clips as generated and their upscales (not extended or edited clips). Python | [Google Vids API › Watermark](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#watermark) | October 8, 2026 |
 
 ## Quick start
 
@@ -35,7 +35,7 @@ Each example's README lists its options. Every endpoint is documented in the [Go
 - **How much can I make?** Google meters Vids per month: Google AI Pro gets 500 seconds of video, Ultra 5x 2,500 seconds and Ultra 20x (Ultra $199) 10,000 seconds, about 1,000 ten-second clips. A free Google account gets no video or images, but can still make avatars. See [plans and allowances](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#plans-and-monthly-allowances).
 - **What does it cost?** A flat [$15/month](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) to useapi.net, which covers every useapi.net API, plus the Google AI plan you already have. There is no per-clip charge from us.
 - **Google Vids or Google Flow?** Both make Omni 1.1 Flash video on the same Google AI plan, from separate allowances, so one Google account connected to both APIs gets both. Vids extends Omni clips and needs no captcha; Flow also has Veo 3.1 and Nano Banana images. Flow examples: [useapi/google-flow-api](https://github.com/useapi/google-flow-api).
-- **Is the video watermarked?** Every Vids clip has an invisible SynthID watermark and a visible Gemini ✦ in the corner. [`watermark-remover/`](./watermark-remover) removes the visible sparkle only; SynthID is untouched.
+- **Is the video watermarked?** Every Vids clip has an invisible SynthID watermark and a visible Gemini ✦ in the corner. [`watermark-remover/`](./watermark-remover) removes the visible sparkle from clips as generated and their upscales (not from extended or edited clips); SynthID is untouched.
 - **Connecting an account by hand?** The [Google Account Setup](https://github.com/useapi/google-account-setup) scripts open a clean, single-use browser profile, so the session you copy keeps working.
 
 ## 中文说明
