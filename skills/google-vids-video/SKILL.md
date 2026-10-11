@@ -126,7 +126,7 @@ Reading jobs and downloading files is free, so `wait-job.sh` and `download.sh` r
 Every failed request or failed job prints the API's error and a one-line hint. What matters most is **whether it was charged**:
 
 - `400`: a parameter was rejected (the message names it). Nothing charged. Also: an avatar from a photo, a generated image that expired, an upscale of a clip over 20 s or already 1080p.
-- `401`: wrong token. `404`: the account is not connected, the file expired, or the job is older than 15 days.
+- `401`: wrong token. `404`: the account is not connected or the file expired. `410`: the job is older than 7 days.
 - `403`: the account's plan has no Vids allowance for this (a free account makes avatars only), or the id belongs to another token. Nothing charged.
 - `422`: Google refused the prompt or inputs. **Nothing charged.** Rephrase and try again. (Every edit of an uploaded video ends here.)
 - `429`: either the month's allowance is used up (`retryAt` is the reset date: use another account or wait), or the account is busy / briefly rate-limited (`retryAt` about a minute away, or `maxJobs` running): **nothing charged, safe to resend once after `retryAt`**. Never loop on it.
