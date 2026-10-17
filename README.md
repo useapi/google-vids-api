@@ -31,6 +31,23 @@ python3 vids_watermark_remover.py my-clip.mp4    # → my-clip_clean.mp4
 
 Each example's README lists its options. Every endpoint is documented in the [Google Vids API reference](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
 
+## MCP server
+
+useapi.net also runs a hosted [Model Context Protocol](https://modelcontextprotocol.io) server for Google Vids, so an AI assistant such as Claude Code, Cursor or VS Code Copilot can use it on your own account. It has 16 tools: Gemini Omni 1.1 Flash clips (3–10 s, 720p or 1080p, with sound and speech) from text, a start image or up to 3 references; extend, upscale and edit; images in 7 styles; uploads; and voiced avatars with 30 voices that speak the lines in your prompt. Nothing to install or run locally.
+
+- Endpoint: `https://api.useapi.net/v1/google-vids/mcp`
+- Transport: Streamable HTTP
+- Authorization: your useapi.net API token in the `Authorization: Bearer …` header, and an account connected with the [Google Vids setup](https://useapi.net/docs/start-here/setup-google-vids?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
+- Listed in the official MCP Registry as `net.useapi/google-vids`
+
+Claude Code:
+
+```bash
+claude mcp add --transport http useapi-google-vids https://api.useapi.net/v1/google-vids/mcp --header "Authorization: Bearer YOUR_API_TOKEN"
+```
+
+Cursor, VS Code, Windsurf and the full tool list: [Google Vids MCP server docs](https://useapi.net/docs/api-google-vids-v1/mcp?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api). useapi.net is a third-party API, not affiliated with Google.
+
 ## Common questions
 
 - **Does Google Vids have an API?** Not for generating video. Vids is a Google Workspace app, and Google doesn't offer an API for it. Omni 1.1 Flash itself is sold on the metered Gemini API at about $0.10 per second of 720p video. useapi.net drives your own Google account in Vids instead, so clips come out of the monthly Vids allowance of your Google AI plan.
