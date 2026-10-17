@@ -20,7 +20,8 @@ Busy accounts and short rate limits are retried. Paid requests are never sent tw
 1. Get a [useapi.net API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) and connect your Google account with the [Google Vids setup](https://useapi.net/docs/start-here/setup-google-vids?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
 2. In n8n, import `google-vids-avatar-app.json`.
 3. Create a **Header Auth** credential: Name `Authorization`, Value `Bearer <your API token>`. Select it on every HTTP Request node.
-4. Publish (activate) the workflow and open the form URL.
+4. Create a **Basic Auth** credential (any username and password) and select it on **Make a talking avatar**, so only you can open the form and spend your allowance.
+5. Publish (activate) the workflow and open the form URL.
 
 **Requirements:** a useapi.net subscription and a Google account on a paid Google AI plan with Google Vids. A clip uses its seconds of the monthly Vids allowance, and a portrait uses 1 image.
 
