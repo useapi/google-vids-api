@@ -2,6 +2,8 @@
 
 📖 Full walkthrough: **[How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars)** — October 7, 2026
 
+Video on YouTube: [Two AI Influencers Launch a Sneaker: Google Vids Avatars + Gemini Omni 1.1 Flash via API](https://www.youtube.com/watch?v=ofCtt7xRBCk)
+
 Make a talking AI influencer video through the [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api): two voiced avatars present a product on a stage in a Gemini Omni 1.1 Flash clip, which is then extended to 30 seconds and upscaled to 1080p.
 
 `influencer-avatars.mjs` (Node.js) and `influencer-avatars.py` (Python) are equivalent implementations of the tutorial's pipeline. Each reads every step from `prompts.json`, runs each generation as an async job (`async: true`), polls [`GET /jobs/{jobid}`](https://useapi.net/docs/api-google-vids-v1/get-google-vids-jobs-jobid?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) every 10 seconds, and downloads every image and MP4 with [`GET /media/{mediaId}`](https://useapi.net/docs/api-google-vids-v1/get-google-vids-media-mediaId?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
