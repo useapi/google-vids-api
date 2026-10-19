@@ -48,11 +48,40 @@ claude mcp add --transport http useapi-google-vids https://api.useapi.net/v1/goo
 
 Cursor, VS Code, Windsurf and the full tool list: [Google Vids MCP server docs](https://useapi.net/docs/api-google-vids-v1/mcp?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api). useapi.net is a third-party API, not affiliated with Google.
 
+## Use with Claude Code
+
+This repo is also a Claude Code plugin marketplace. The plugin adds the hosted Google Vids MCP server and the `google-vids-video` agent skill, and reads your token from the `USEAPI_TOKEN` environment variable, so set it before you start Claude Code:
+
+```bash
+export USEAPI_TOKEN=user:12345-...      # your useapi.net API token
+```
+
+Then, inside Claude Code:
+
+```
+/plugin marketplace add useapi/google-vids-api
+/plugin install google-vids@useapi-google-vids
+```
+
+On Claude Code 2.1.275 or later, `/plugin install google-vids --marketplace useapi/google-vids-api` does both in one step. Run `/mcp` to check that `useapi-google-vids` is connected.
+
+## Use with Gemini CLI
+
+This repo is also a Gemini CLI extension with the same MCP server and the `google-vids-video` agent skill:
+
+```bash
+gemini extensions install https://github.com/useapi/google-vids-api
+```
+
+The install asks for your useapi.net API token and keeps it in the system keychain. Change it later with `gemini extensions config useapi-google-vids`, and check the connection with `gemini mcp list`. The `google-vids-video` skill's scripts read `USEAPI_TOKEN` from your shell, so export it as well if you use the skill.
+
 ## Common questions
 
-- **Does Google Vids have an API?** Not for generating video. Vids is a Google Workspace app, and Google doesn't offer an API for it. Omni 1.1 Flash itself is sold on the metered Gemini API at about $0.10 per second of 720p video. useapi.net drives your own Google account in Vids instead, so clips come out of the monthly Vids allowance of your Google AI plan.
+<!-- Official API figures in these answers, verified 2026-10-18: https://ai.google.dev/gemini-api/docs/pricing (Omni 1.1 Flash ~$0.10/s at 720p = ~$1.01 per 10 s). Vids figure: Ultra $199 = 10,000 s/month = ~$0.20 per 10 s. -->
+
+- **Does Google Vids have an API?** Yes, through useapi.net. Google doesn't offer an API for Vids, a Google Workspace app (as of October 2026), so useapi.net drives your own Google account in Vids, and clips come out of the monthly Vids allowance of your Google AI plan. A 10-second Omni 1.1 Flash clip uses about $0.20 of a Google AI Ultra $199 plan, against about $1.01 at 720p on the metered Gemini API, where Omni 1.1 Flash costs about $0.10 per second.
 - **How much can I make?** Google meters Vids per month: Google AI Pro gets 500 seconds of video, Ultra 5x 2,500 seconds and Ultra 20x (Ultra $199) 10,000 seconds, about 1,000 ten-second clips. A free Google account gets no video or images, but can still make avatars. See [plans and allowances](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#plans-and-monthly-allowances).
-- **What does it cost?** A flat [$15/month](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) to useapi.net, which covers every useapi.net API, plus the Google AI plan you already have. There is no per-clip charge from us.
+- **What does it cost?** A flat [$15/month](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) to useapi.net, which covers every useapi.net API, plus the Google AI plan you already have. There is no per-clip charge from us. A 10-second clip works out to about $0.20 on Ultra $199, against about $1.01 at 720p on Google's metered [Gemini API](https://ai.google.dev/gemini-api/docs/pricing) (as of October 2026).
 - **Google Vids or Google Flow?** Both make Omni 1.1 Flash video on the same Google AI plan, from separate allowances, so one Google account connected to both APIs gets both. Vids extends Omni clips and needs no captcha; Flow also has Veo 3.1 and Nano Banana images. Flow examples: [useapi/google-flow-api](https://github.com/useapi/google-flow-api).
 - **Is the video watermarked?** Every Vids clip has an invisible SynthID watermark and a visible Gemini ✦ in the corner. [`watermark-remover/`](./watermark-remover) removes the visible sparkle from clips as generated and their upscales (not from extended or edited clips); SynthID is untouched.
 - **Connecting an account by hand?** The [Google Account Setup](https://github.com/useapi/google-account-setup) scripts open a clean, single-use browser profile, so the session you copy keeps working.

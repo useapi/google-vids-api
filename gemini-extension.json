@@ -1,0 +1,22 @@
+{
+  "name": "useapi-google-vids",
+  "version": "1.0.0",
+  "description": "Hosted Google Vids MCP server by useapi.net (16 tools): make Gemini Omni 1.1 Flash video, images and voiced AI avatars in Google Vids, extend, edit and upscale clips, on your own Google AI Pro or Ultra plan. Third-party paid service, not affiliated with Google.",
+  "contextFileName": "GEMINI.md",
+  "settings": [
+    {
+      "name": "useapi.net API token",
+      "description": "Your useapi.net API token, from https://useapi.net/docs/start-here/setup-useapi",
+      "envVar": "USEAPI_TOKEN",
+      "sensitive": true
+    }
+  ],
+  "mcpServers": {
+    "useapi-google-vids": {
+      "httpUrl": "https://api.useapi.net/v1/google-vids/mcp",
+      "headers": {
+        "Authorization": "Bearer ${USEAPI_TOKEN}"
+      }
+    }
+  }
+}

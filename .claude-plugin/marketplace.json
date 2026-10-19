@@ -1,0 +1,23 @@
+{
+  "name": "useapi-google-vids",
+  "description": "useapi.net Google Vids plugin for Claude Code: the hosted MCP server and agent skill.",
+  "owner": {
+    "name": "useapi.net",
+    "url": "https://useapi.net"
+  },
+  "plugins": [
+    {
+      "name": "google-vids",
+      "source": "./",
+      "description": "Hosted Google Vids MCP server by useapi.net (16 tools): make Gemini Omni 1.1 Flash video, images and voiced AI avatars in Google Vids, extend, edit and upscale clips, on your own Google AI Pro or Ultra plan. Third-party paid service, not affiliated with Google. Includes the repo's agent skill.",
+      "category": "media",
+      "tags": [
+        "google-vids",
+        "omni-flash",
+        "avatar",
+        "video",
+        "mcp"
+      ]
+    }
+  ]
+}
