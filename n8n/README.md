@@ -1,6 +1,6 @@
 # n8n workflow for the Google Vids API
 
-📖 Published on n8n: [Create talking avatar videos with Google Vids and Gemini Omni 1.1 Flash](https://n8n.io/workflows/20704)
+Published on n8n: [Create talking avatar videos with Google Vids and Gemini Omni 1.1 Flash](https://n8n.io/workflows/20704)
 
 [`google-vids-avatar-app.json`](./google-vids-avatar-app.json) is a ready-to-import [n8n](https://n8n.io) app that makes a **talking avatar video** with **Gemini Omni 1.1 Flash** in Google Vids, on your own Google account. It uses only core n8n nodes, with no community nodes.
 

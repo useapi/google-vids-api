@@ -1,6 +1,6 @@
 # AI influencer video with voiced avatars — Google Vids API (Node.js & Python)
 
-📖 Full walkthrough: **[How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars)** — October 7, 2026
+Full walkthrough: **[How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars)** — October 7, 2026 (October 20, 2026)
 
 Video on YouTube: [Two AI Influencers Launch a Sneaker: Google Vids Avatars + Gemini Omni 1.1 Flash via API](https://www.youtube.com/watch?v=ofCtt7xRBCk)
 
