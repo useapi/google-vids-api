@@ -14,7 +14,7 @@ The sparkle is a white four-pointed star laid over the video at about 30% opacit
 original = (frame - opacity * white) / (1 - opacity)
 ```
 
-This is reverse alpha blending, the same method as the general Gemini watermark tools. The difference is that the star's position, shape and opacity here were measured on hundreds of Google Vids clips, for every Vids format. The general tools target Gemini and Veo output. The one we tried on Vids clips, `gwmr`, worked at 720p but missed the mark at 1080p. After the reverse blend, the script smooths only the star's thin outline, so no edge is left. Nothing is painted in by AI.
+This is reverse alpha blending, the same method as the general Gemini watermark tools. The difference is that the star's position, shape and opacity here were measured on hundreds of Google Vids clips, for every Vids format. The general tools target Gemini and Veo output. After the reverse blend, the script smooths only the star's thin outline, so no edge is left. Nothing is painted in by AI.
 
 - All four Vids formats: 1280×720, 720×1280, 1920×1080 and 1080×1920. The star scales with the frame's short side.
 - Only the small area around the star changes. The rest of every frame is re-encoded at high quality (CRF 18 by default), and the audio is copied unchanged.
