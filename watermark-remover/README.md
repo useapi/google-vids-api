@@ -4,7 +4,7 @@ Every video made in Google Vids, including the ones from the [Google Vids API](h
 
 ![Before and after, all four Vids formats](./before-after.jpg)
 
-Full clips before and after, at `720p` and `1080p`: the [launch clip](https://useapi.net/docs/articles/google-vids-influencer-avatars#6-the-launch-two-avatars-and-the-product-in-one-clip) and [the pigeon](https://useapi.net/docs/articles/google-vids-influencer-avatars#a-pigeon-in-aeroloops) in our Google Vids tutorial.
+Full clips before and after, at `720p` and `1080p`: the [launch clip](https://useapi.net/docs/articles/google-vids-influencer-avatars?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#6-the-launch-two-avatars-and-the-product-in-one-clip) and [the pigeon](https://useapi.net/docs/articles/google-vids-influencer-avatars?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#a-pigeon-in-aeroloops) in our Google Vids tutorial.
 
 ## How it works
 
@@ -21,7 +21,7 @@ This is reverse alpha blending, the same method as the general Gemini watermark 
 - In our test, a 10-second clip took about 7 seconds at 720p and 20 seconds at 1080p.
 - The invisible SynthID watermark that Google also embeds is not affected.
 
-**Works on clips as generated, and on upscales of them. It does not work on extended or edited clips.** An extend or an edit gives the already-marked clip back to the model, which regenerates the whole video and repaints the star into the picture, softened and reshaped in every frame, before Google stamps a new one on top. The new stamp comes off, but the repainted star stays as a faint diamond. To keep a long video clean, remove the mark from each clip you generate rather than from an extended one.
+It works on clips as generated, and on upscales of them. It does not work on extended or edited clips. An extend or an edit gives the already-marked clip back to the model, which regenerates the whole video and repaints the star into the picture, softened and reshaped in every frame, before Google stamps a new one on top. The new stamp comes off, but the repainted star stays as a faint diamond. To keep a long video clean, remove the mark from each clip you generate rather than from an extended one.
 
 Where the star sits on a very sharp edge, such as a bright screen against a black border, a few pixels at its tip can stay slightly off.
 

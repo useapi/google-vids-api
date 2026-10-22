@@ -1,6 +1,6 @@
 # AI influencer video with voiced avatars — Google Vids API (Node.js & Python)
 
-Full walkthrough: **[How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars)** — October 7, 2026 (October 20, 2026)
+Full walkthrough: [How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) — October 7, 2026 (October 20, 2026)
 
 Video on YouTube: [Two AI Influencers Launch a Sneaker: Google Vids Avatars + Gemini Omni 1.1 Flash via API](https://www.youtube.com/watch?v=ofCtt7xRBCk)
 
@@ -12,14 +12,14 @@ Make a talking AI influencer video through the [Google Vids API](https://useapi.
 
 - [Node.js](https://nodejs.org) v21 or newer (no dependencies to install — uses built-in `fetch`), or [Python](https://www.python.org) 3.x (standard library only — no dependencies to install)
 - A useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
-- A Google account connected through [Setup Google Vids](https://useapi.net/docs/start-here/setup-google-vids?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api), on a paid Google AI plan. Every call uses that account's monthly Vids allowance, in seconds of video and a count of images. Google's figures, from the [Plans and monthly allowances](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#plans-and-monthly-allowances) table:
+- A Google account connected through [Setup Google Vids](https://useapi.net/docs/start-here/setup-google-vids?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api), on a paid Google AI subscription. Every call uses that account's monthly Vids allowance, in seconds of video and a count of images. Google's figures, from the [Plans and monthly allowances](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#plans-and-monthly-allowances) table:
 
 | | Google AI Plus | Google AI Pro | Google AI Ultra 5x | Google AI Ultra 20x |
 |---|---|---|---|---|
-| AI video clips | 6 a month, combined with AI avatars | 500 seconds a month | 2,500 seconds a month | 10,000 seconds a month |
-| Image generation and editing | 1 credit per image action | 30 a month | 300 a month | 1,000 a month |
+| AI video clips | 60 seconds a month | 500 seconds a month | 2,500 seconds a month | 10,000 seconds a month |
+| Image generation and editing | up to 50 a month | 30 a month | 300 a month | 1,000 a month |
 
-Google AI Ultra $199 is the plan Google calls Ultra 20x. A free Google account gets no Vids allowance for video or images. useapi.net charges a flat [$15/month](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) for every API, with no per-clip charge.
+Google AI Ultra $199.99 is the plan Google calls Ultra 20x, and Ultra $99.99 is Ultra 5x. A free Google account gets no Vids allowance for video or images. One useapi.net [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) covers every useapi.net API, with no per-clip charge.
 
 ## Usage
 
@@ -72,7 +72,7 @@ Everything lands in an `output/` folder in the current directory:
 
 Run the script again and it continues where it stopped: finished steps are skipped (and downloaded again if their file is missing), and a job that was still running is picked up by its `jobid` instead of being sent again. To redo a step, delete its entry from `influencer_state.json`.
 
-Generated files live in Google's temporary storage: images for a few hours, videos for at least half a day. The script downloads each one as soon as it is made.
+Generated files live in Google's temporary storage: images for a few hours, videos for 24 hours. The script downloads each one as soon as it is made.
 
 Every MP4 has Google's visible Gemini ✦ in the bottom-right corner and an invisible SynthID watermark, see [Watermark](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#watermark).
 
@@ -101,7 +101,7 @@ A job that fails for any other reason stops the script, because Google may have 
 |---|---|
 | `401` Unauthorized | Check the API token. |
 | `404` Account is not configured | Connect the account via [Setup Google Vids](https://useapi.net/docs/start-here/setup-google-vids?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api), or pass the right `EMAIL`. |
-| `403` no Vids allowance (monthly limit 0) | The account's Google plan has no Vids allowance for this, as on a free account. Use an account on a paid Google AI plan. |
+| `403` no Vids allowance (monthly limit 0) | The account's Google AI subscription has no Vids allowance for this, as on a free account. Use an account on a paid Google AI subscription. |
 | `429` allowance used up | The month's seconds or images are used up. `retryAt` is the reset, on the 1st of the month at 00:00 Pacific time. |
 | `422` Google refused this request | Google refused the prompt or the inputs. Nothing was charged. Change the prompt in `prompts.json` and run again. |
 | `400` image expired | A generated image lasts a few hours. Delete its entry under `images` in `output/influencer_state.json` and run again. |

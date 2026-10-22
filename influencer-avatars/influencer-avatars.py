@@ -2,7 +2,7 @@
 
 Script version 1.0, October 8, 2026
 
-Script to make a talking AI influencer video with voiced avatars using the Google Vids API v1 by useapi.net 🚀
+Script to make a talking AI influencer video with voiced avatars using the Google Vids API by useapi.net
 
 Runs the pipeline of the tutorial https://useapi.net/docs/articles/google-vids-influencer-avatars
 1. Two images with POST /images: Mia's portrait and the AeroLoop product shot.

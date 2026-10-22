@@ -1,8 +1,8 @@
 ---
 name: google-vids-video
-description: Make AI video in Google Vids with Gemini Omni 1.1 Flash through the useapi.net Google Vids API, on the user's own Google AI plan. Creates talking AI avatars (a person drawn from a description, with one of 30 voices) and puts them in clips as an AI influencer, spokesperson or UGC ad presenter; also text-to-video, reference images, start image, extend a clip up to about 41 seconds, upscale to 1080p, edit by prompt, and Vids images. Downloads the .mp4. Use when the user asks for a Google Vids video, a Gemini Omni or Omni Flash clip, an AI avatar or talking-avatar video, an AI influencer or spokesperson video, a UGC-style ad, or to extend or upscale a Vids clip from the command line. Needs curl, jq and a USEAPI_TOKEN environment variable.
+description: Make AI video in Google Vids with Gemini Omni 1.1 Flash through the useapi.net Google Vids API, on the user's Google AI subscription. Creates talking AI avatars (a person drawn from a description, with one of 30 voices) and puts them in clips as an AI influencer, spokesperson or UGC ad presenter; also text-to-video, reference images, start image, extend a clip up to about 41 seconds, upscale to 1080p, edit by prompt, and Vids images. Downloads the .mp4. Use when the user asks for a Google Vids video, a Gemini Omni or Omni Flash clip, an AI avatar or talking-avatar video, an AI influencer or spokesperson video, a UGC-style ad, or to extend or upscale a Vids clip from the command line. Needs curl, jq and a USEAPI_TOKEN environment variable.
 license: MIT
-compatibility: Needs bash, curl, jq and network access to api.useapi.net. Requires a useapi.net API token (USEAPI_TOKEN) and a Google account on a paid Google AI plan (Pro or Ultra) connected to useapi.net with the Google Vids setup.
+compatibility: Needs bash, curl, jq and network access to api.useapi.net. Requires a useapi.net API token (USEAPI_TOKEN) and a Google account on a paid Google AI subscription (Plus, Pro or Ultra) connected to useapi.net with the Google Vids setup.
 metadata:
   author: useapi.net
   homepage: https://github.com/useapi/google-vids-api
@@ -10,7 +10,7 @@ metadata:
 
 # Gemini Omni 1.1 Flash video and AI avatars with the useapi.net Google Vids API
 
-These scripts call the [useapi.net Google Vids API](https://useapi.net/docs/api-google-vids-v1), a third-party REST API that drives the user's own Google Vids account. Every clip spends seconds of the monthly Vids allowance of the user's Google AI plan. Every script is in `scripts/` next to this file. Run them with bash.
+These scripts call the [useapi.net Google Vids API](https://useapi.net/docs/api-google-vids-v1), a third-party REST API that drives the user's Google Vids account. Every clip spends seconds of the monthly Vids allowance of the user's Google AI subscription. Every script is in `scripts/` next to this file. Run them with bash.
 
 ## Before you start
 
@@ -24,7 +24,7 @@ These scripts call the [useapi.net Google Vids API](https://useapi.net/docs/api-
 scripts/video.sh "<prompt>" [key=value ...]
 ```
 
-It prints progress on stderr and the saved `.mp4` path on stdout, with the job record next to it as `.json` (`OUT_DIR` sets the folder, default the current one). A clip usually takes 30 to 100 seconds; run it in the background (in Claude Code, `run_in_background`) or with a timeout of at least 10 minutes, and do not start a second copy while it runs.
+It prints progress on stderr and the saved `.mp4` path on stdout, with the job record next to it as `.json` (`OUT_DIR` sets the folder, default the current one). A clip usually takes 20 to 100 seconds; run it in the background (in Claude Code, `run_in_background`) or with a timeout of at least 10 minutes, and do not start a second copy while it runs.
 
 ```bash
 # Text to video, 8 s landscape 720p (the defaults)
@@ -38,11 +38,11 @@ scripts/video.sh "@avatar_1 holds up the mug, smiles and says: \"Honestly the be
 
 ## Costs (the Vids allowance)
 
-Vids meters video in **seconds** and images by **count**, per month, separate from Google Flow credits. Google AI Pro gets 500 s, Ultra 5x 2,500 s, Ultra 20x ($199) 10,000 s of video; images 30 / 300 / 1,000. A free Google account gets no video or images (it can still make avatars). Allowances reset on the 1st at 00:00 Pacific.
+Vids meters video in seconds and images by count, per month, separate from Google Flow credits. Google AI Plus gets 60 s, Pro 500 s, Ultra 5x ($99.99) 2,500 s and Ultra 20x ($199.99) 10,000 s of video, and up to 50 / 30 / 300 / 1,000 images. A free Google account gets no video or images (it can still make avatars). Allowances reset on the 1st at 00:00 Pacific.
 
 | Request | Uses |
 |---|---|
-| A clip (`generate.sh`, `video.sh`) | its `duration` in seconds. **`720p` and `1080p` cost the same.** Avatars and references add nothing |
+| A clip (`generate.sh`, `video.sh`) | its `duration` in seconds. `720p` and `1080p` cost the same. Avatars and references add nothing |
 | Extend (`extend.sh`) | only the seconds it adds, whatever the clip's length |
 | Upscale (`upscale.sh`) | the clip's full length again (an 8 s clip uses 8 s) |
 | Edit (`edit.sh`) | the length it returns, at most 10 s |
@@ -137,7 +137,7 @@ Every failed request or failed job prints the API's error and a one-line hint. W
 
 ## Watermark
 
-Every Vids MP4 carries Google's visible Gemini ✦ sparkle in the bottom-right corner and an invisible SynthID watermark. Images have no visible mark. The [watermark remover](https://github.com/useapi/google-vids-api/tree/main/watermark-remover) in this repo removes the visible ✦ (Python, `numpy`, `ffmpeg`) and leaves SynthID untouched. **It works on clips as generated and on their upscales, not on extended or edited clips**, where the model repaints the star into the picture and a faint diamond stays. To keep a long video clean, remove the mark from each generated clip and join them, rather than extending.
+Every Vids MP4 carries Google's visible Gemini ✦ sparkle in the bottom-right corner and an invisible SynthID watermark. Images have no visible mark. The [watermark remover](https://github.com/useapi/google-vids-api/tree/main/watermark-remover) in this repo removes the visible ✦ (Python, `numpy`, `ffmpeg`) and leaves SynthID untouched. It works on clips as generated and on their upscales, not on extended or edited clips, where the model repaints the star into the picture and a faint diamond stays. To keep a long video clean, remove the mark from each generated clip and join them, rather than extending.
 
 ## After it finishes
 

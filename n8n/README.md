@@ -2,7 +2,7 @@
 
 Published on n8n: [Create talking avatar videos with Google Vids and Gemini Omni 1.1 Flash](https://n8n.io/workflows/20704)
 
-[`google-vids-avatar-app.json`](./google-vids-avatar-app.json) is a ready-to-import [n8n](https://n8n.io) app that makes a **talking avatar video** with **Gemini Omni 1.1 Flash** in Google Vids, on your own Google account. It uses only core n8n nodes, with no community nodes.
+[`google-vids-avatar-app.json`](./google-vids-avatar-app.json) is a ready-to-import [n8n](https://n8n.io) app that makes a talking avatar video with Gemini Omni 1.1 Flash in [Google Vids](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api), on your Google AI subscription. It uses only core n8n nodes, with no community nodes.
 
 ![The form](./vids-avatar-app-01-form.png)
 
@@ -23,6 +23,6 @@ Busy accounts and short rate limits are retried. Paid requests are never sent tw
 4. Create a **Basic Auth** credential (any username and password) and select it on **Make a talking avatar**, so only you can open the form and spend your allowance.
 5. Publish (activate) the workflow and open the form URL.
 
-**Requirements:** a useapi.net subscription and a Google account on a paid Google AI plan with Google Vids. A clip uses its seconds of the monthly Vids allowance, and a portrait uses 1 image.
+Requirements: a useapi.net subscription and a Google account on a paid Google AI subscription (Plus, Pro or Ultra). A clip uses its seconds of the monthly Vids allowance, and a portrait uses 1 image.
 
 Every endpoint is documented in the [Google Vids API reference](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
