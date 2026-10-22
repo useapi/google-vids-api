@@ -4,14 +4,14 @@ Published on n8n: [Create talking avatar videos with Google Vids and Gemini Omni
 
 [`google-vids-avatar-app.json`](./google-vids-avatar-app.json) is a ready-to-import [n8n](https://n8n.io) app that makes a talking avatar video with Gemini Omni 1.1 Flash in [Google Vids](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api), on your Google AI subscription. It uses only core n8n nodes, with no community nodes.
 
-![The form](./vids-avatar-app-01-form.png)
+![The workflow in the n8n editor: the form, the presenter, the video segments, the result page and the media webhook](./google-vids-avatar-00-canvas.png)
+
+![The form: presenter, outfit, framing, voice, the line, the scene, format, length, up to 3 more segments and resolution](./google-vids-avatar-01-form.png)
 
 1. **The form.** Describe a new presenter or pick one of your saved presenters, choose one of the 30 Gemini voices, write the line and the scene, and pick the format, length (3 to 10 s) and resolution. Add up to 3 more segments, each with its own line, for a video of up to 40 s.
 2. **The presenter.** Google Vids draws the presenter as an AI avatar. A page shows the portrait and plays the voice: use it, or re-draw it with a new description. Saved presenters show as a gallery with pictures and voice samples.
 3. **The video.** Omni 1.1 Flash films the avatar saying your line at 720p. Each extra segment extends the clip, and a page previews each step and lets you stop early. The optional 1080p upscale runs last, for videos of up to 20 s. Pages carry a resume link.
 4. **The result.** The page plays the MP4 with a download link and shows the seconds used, a cost estimate and the avatar ID to reuse.
-
-![The result page](./vids-avatar-app-05-result.png)
 
 Busy accounts and short rate limits are retried. Paid requests are never sent twice: a job that may already be charged stops with its job id.
 

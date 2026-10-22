@@ -12,6 +12,7 @@ output/
 *.jpeg
 *.webp
 !watermark-remover/before-after.jpg
+!n8n/google-vids-avatar-*.png
 result.json
 *_state.json
 _*.*
