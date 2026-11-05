@@ -1,10 +1,11 @@
 # Google Vids API examples (useapi.net): Gemini Omni 1.1 Flash video with voiced AI avatars
 
-Runnable examples for the [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api): make Gemini Omni 1.1 Flash video in [Google Vids](https://docs.google.com/videos) with voiced avatars, your own reference images, extends up to about 41 seconds and a 1080p upscale, through a REST API that runs on your paid [Google AI subscription](https://gemini.google/subscriptions/): Plus $4.99, Pro $19.99, Ultra $99.99 or Ultra $199.99 a month (as of October 2026). Vids has its own monthly allowance, separate from Google Flow's credits, and asks for no captcha.
+Runnable examples for the [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api): make Gemini Omni 1.1 Flash video in [Google Vids](https://docs.google.com/videos) with voiced avatars, your own reference images, extends up to about 41 seconds and a 1080p upscale, talking avatar videos of up to 30 seconds made from a photo, and speech in 30 Gemini voices, through a REST API that runs on your paid [Google AI subscription](https://gemini.google/subscriptions/): Plus $4.99, Pro $19.99, Ultra $99.99 or Ultra $199.99 a month (as of October 2026). Vids has its own monthly allowance, separate from Google Flow's credits, and asks for no captcha.
 
 | Example | What it does | Tutorial | Tutorial date |
 |---|---|---|---|
 | [`influencer-avatars/`](./influencer-avatars) | Two voiced avatars (one from a portrait, one from a description) present a product in a 10-second clip, extended to 30 seconds, with the first 20 seconds upscaled to 1080p. Node.js and Python | [How to Make AI Influencer Videos with Avatars via the Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) | October 7, 2026 (October 20, 2026) |
+| [`talking-avatar/`](./talking-avatar) | A photo becomes a voiced avatar, restyled in one sentence with `refine`, that reads your script in a 1280×720 talking-head video of up to 30 seconds (`POST /videos/avatar`). Plus speech on its own: a 2,426-character story read in a Gemini voice and saved as a WAV (`POST /speech`). Node.js and Python | [A talking avatar from a photo](https://useapi.net/docs/articles/google-vids-influencer-avatars?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#a-talking-avatar-from-a-photo) and [Speech on its own](https://useapi.net/docs/articles/google-vids-influencer-avatars?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#speech-on-its-own) | November 4, 2026 |
 | [`skills/google-vids-video/`](./skills/google-vids-video) | Agent skill for Claude Code, Codex and other coding agents: ask for a clip and the agent makes it with Omni 1.1 Flash in Vids (voiced AI avatars, reference images, extend, 1080p upscale, edit) and downloads the `.mp4`, never paying twice for a request. Install: `npx skills add useapi/google-vids-api --skill google-vids-video`. Bash, curl, jq | [SKILL.md](./skills/google-vids-video/SKILL.md) | October 8, 2026 |
 | [`n8n/`](./n8n) | Ready-to-import n8n app: describe or pick a presenter, choose a voice, write the lines, and get a talking avatar video of up to 40 s with an optional 1080p upscale. No code | [n8n template #20704](https://n8n.io/workflows/20704) | October 12, 2026 |
 | [`watermark-remover/`](./watermark-remover) | Removes the visible Gemini ✦ sparkle from Vids videos by reverse alpha blending, in all four Vids formats, for clips as generated and their upscales (not extended or edited clips). Python | [Google Vids API › Watermark](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#watermark) | October 8, 2026 |
@@ -19,6 +20,14 @@ cd google-vids-api/influencer-avatars
 node ./influencer-avatars.mjs <API_TOKEN> <EMAIL>
 # or, equivalently, with Python:
 python3 ./influencer-avatars.py <API_TOKEN> <EMAIL>
+```
+
+A talking avatar from your own photo, and speech on its own:
+
+```bash
+cd google-vids-api/talking-avatar
+node ./talking-avatar.mjs <API_TOKEN> <EMAIL> photo.jpg    # or: python3 ./talking-avatar.py …
+node ./speech.mjs <API_TOKEN> <EMAIL>                      # or: python3 ./speech.py …
 ```
 
 To take the ✦ off a downloaded clip (needs `numpy` and `ffmpeg`):
