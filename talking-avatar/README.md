@@ -4,6 +4,8 @@ Full walkthrough: [How to Make AI Influencer Videos with Avatars via the Google 
 
 Release post with the same requests and their results: [Google Vids: 30-Second Talking Avatars from a Photo, and Text to Speech](https://useapi.net/blog/261104?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
 
+Watch the result: [Talking AI avatar from one photo](https://youtube.com/shorts/P44L9VZ8bME) (YouTube Short)
+
 Turn a photo into a voiced avatar and have it read your script, through the [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) by [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api): a 1280×720 talking-head video with sound and lip sync, as long as the speech, up to 30 seconds. A second script reads a text of up to 2,500 characters as speech on its own, in any of the 30 Gemini voices.
 
 | Script | What it does |
