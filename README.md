@@ -33,7 +33,7 @@ Each example's README lists its options. Every endpoint is documented in the [Go
 
 ## MCP server
 
-useapi.net also runs a hosted [Model Context Protocol](https://modelcontextprotocol.io) server for Google Vids, so an AI assistant such as Claude Code, Cursor or VS Code Copilot can use it on your Google Vids account. It has 16 tools: Gemini Omni 1.1 Flash clips (3–10 s, 720p or 1080p, with sound and speech) from text, a start image or up to 3 references; extend, upscale and edit; images in 7 styles; uploads; and voiced avatars with 30 voices that speak the lines in your prompt. Nothing to install or run locally.
+useapi.net also runs a hosted [Model Context Protocol](https://modelcontextprotocol.io) server for Google Vids, so an AI assistant such as Claude Code, Cursor or VS Code Copilot can use it on your Google Vids account. It has 18 tools: Gemini Omni 1.1 Flash clips (3–10 s, 720p or 1080p, with sound and speech) from text, a start image or up to 3 references; extend, upscale and edit; images in 7 styles; uploads; voiced avatars with 30 voices, made from a description or your own photo and restyled in words; talking avatar videos of up to 30 seconds that read your script; and speech from a script of up to 2,500 characters. Nothing to install or run locally.
 
 - Endpoint: `https://api.useapi.net/v1/google-vids/mcp`
 - Transport: Streamable HTTP

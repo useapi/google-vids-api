@@ -9,7 +9,7 @@
     {
       "name": "google-vids",
       "source": "./",
-      "description": "Hosted Google Vids MCP server by useapi.net (16 tools): make Gemini Omni 1.1 Flash video, images and voiced AI avatars in Google Vids, extend, edit and upscale clips, on your Google AI Plus, Pro or Ultra subscription. Third-party paid service, not affiliated with Google. Includes the repo's agent skill.",
+      "description": "Hosted Google Vids MCP server by useapi.net (18 tools): make Gemini Omni 1.1 Flash video, images, AI avatars from a photo or a description, 30-second talking avatar videos and speech in Google Vids, extend, edit and upscale clips, on your Google AI Plus, Pro or Ultra subscription. Third-party paid service, not affiliated with Google. Includes the repo's agent skill.",
       "category": "media",
       "tags": [
         "google-vids",
