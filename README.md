@@ -113,7 +113,7 @@ The install asks for your useapi.net API token and keeps it in the system keycha
 
 Visit our [Discord Server](https://discord.gg/w28uK3cnmF) or [Telegram Channel](https://t.me/use_api) for any support questions and concerns.
 
-We regularly post guides and tutorials on the [YouTube Channel](https://www.youtube.com/@useapi-net).
+Latest video: [Gemini Omni 1.2 Flash in Google Vids: 15 seconds from one prompt, extended to 25](https://www.youtube.com/watch?v=eJ3js18XCBM). We regularly post guides and tutorials on the [YouTube Channel](https://www.youtube.com/@useapi-net).
 
 ## License
 
