@@ -7,7 +7,7 @@ Script to make a talking AI influencer video with voiced avatars using the Googl
 Runs the pipeline of the tutorial https://useapi.net/docs/articles/google-vids-influencer-avatars
 1. Two images with POST /images: Mia's portrait and the AeroLoop product shot.
 2. Two voiced avatars with POST /avatars: Mia from her portrait, Leo drawn by Google from a description.
-3. A 10-second Gemini Omni 1.1 Flash launch clip with POST /videos: avatar_1 + avatar_2 + referenceImage_1 (the product).
+3. A 10-second Gemini Omni 1.2 Flash launch clip with POST /videos: avatar_1 + avatar_2 + referenceImage_1 (the product).
 4. Two 10-second extends with POST /videos/extend, to 20 and to 30 seconds.
 5. A 1080p upscale of the 20-second clip with POST /videos/upscale (it takes clips of up to 20 seconds).
 
@@ -277,8 +277,8 @@ const validate = (config) => {
         else if (names.has(name)) warnings.push(`the name "${name}" is used twice`);
         names.add(name);
     };
-    const checkDuration = (what, d) => {
-        if (d != null && !(Number.isInteger(d) && d >= 3 && d <= 10)) warnings.push(`${what}: duration must be 3 to 10 seconds`);
+    const checkDuration = (what, d, max) => {
+        if (d != null && !(Number.isInteger(d) && d >= 3 && d <= max)) warnings.push(`${what}: duration must be 3 to ${max} seconds`);
     };
 
     for (const image of images) {
@@ -294,7 +294,7 @@ const validate = (config) => {
     if (!launch) fail('launch is required in the prompts file');
     named('launch', launch.name);
     if (!launch.prompt) warnings.push('launch: prompt is required');
-    checkDuration('launch', launch.duration);
+    checkDuration('launch', launch.duration, 15);
     const allowed = ['name', 'prompt', 'duration', 'resolution', 'aspectRatio', ...AVATAR_KEYS, ...IMAGE_KEYS];
     const unknown = Object.keys(launch).filter((key) => !allowed.includes(key));
     if (unknown.length) warnings.push(`launch: parameters not supported by this script: ${unknown.join(', ')}`);
@@ -310,7 +310,7 @@ const validate = (config) => {
     for (const extend of extendsList) {
         named('an extend', extend.name);
         if (!extend.prompt) warnings.push(`extend ${extend.name}: prompt is required`);
-        checkDuration(`extend ${extend.name}`, extend.duration);
+        checkDuration(`extend ${extend.name}`, extend.duration, 10);
         const source = clips[previous];
         clips[extend.name] = { duration: source.duration + (extend.duration ?? 8), resolution: extend.resolution ?? source.resolution };
         previous = extend.name;

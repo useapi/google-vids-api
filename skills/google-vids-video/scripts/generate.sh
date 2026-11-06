@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Start one Gemini Omni 1.1 Flash video in Google Vids and print its job id. It does not wait; use wait-job.sh.
+# Start one Gemini Omni 1.2 Flash video in Google Vids and print its job id. It does not wait; use wait-job.sh.
 # Usage: generate.sh "<prompt>" [key=value ...]
-#   duration=3..10 (default 8, seconds; the clip costs that many seconds of the Vids allowance)
+#   duration=3..15 (default 8, seconds; the clip costs that many seconds of the Vids allowance)
 #   aspectRatio=landscape (default) | portrait      resolution=720p (default) | 1080p (same cost)
 #   avatar_1..3=<avatarId>  referenceImage_1..3=<image mediaId or assetId>   (3 references in all)
 #   startImage=<image mediaId or assetId>   (the clip opens on it; not with avatars or references)

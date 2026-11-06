@@ -7,7 +7,7 @@ Script to make a talking AI influencer video with voiced avatars using the Googl
 Runs the pipeline of the tutorial https://useapi.net/docs/articles/google-vids-influencer-avatars
 1. Two images with POST /images: Mia's portrait and the AeroLoop product shot.
 2. Two voiced avatars with POST /avatars: Mia from her portrait, Leo drawn by Google from a description.
-3. A 10-second Gemini Omni 1.1 Flash launch clip with POST /videos: avatar_1 + avatar_2 + referenceImage_1 (the product).
+3. A 10-second Gemini Omni 1.2 Flash launch clip with POST /videos: avatar_1 + avatar_2 + referenceImage_1 (the product).
 4. Two 10-second extends with POST /videos/extend, to 20 and to 30 seconds.
 5. A 1080p upscale of the 20-second clip with POST /videos/upscale (it takes clips of up to 20 seconds).
 
@@ -320,9 +320,9 @@ def validate(config):
             warnings.append(f'the name "{name}" is used twice')
         names.add(name)
 
-    def check_duration(what, d):
-        if d is not None and not (isinstance(d, int) and 3 <= d <= 10):
-            warnings.append(f'{what}: duration must be 3 to 10 seconds')
+    def check_duration(what, d, top):
+        if d is not None and not (isinstance(d, int) and 3 <= d <= top):
+            warnings.append(f'{what}: duration must be 3 to {top} seconds')
 
     image_names = [i.get('name') for i in images]
     avatar_names = [a.get('name') for a in avatars]
@@ -344,7 +344,7 @@ def validate(config):
     named('launch', launch.get('name'))
     if not launch.get('prompt'):
         warnings.append('launch: prompt is required')
-    check_duration('launch', launch.get('duration'))
+    check_duration('launch', launch.get('duration'), 15)
     allowed = ['name', 'prompt', 'duration', 'resolution', 'aspectRatio'] + AVATAR_KEYS + IMAGE_KEYS
     unknown = [key for key in launch if key not in allowed]
     if unknown:
@@ -365,7 +365,7 @@ def validate(config):
         named('an extend', extend.get('name'))
         if not extend.get('prompt'):
             warnings.append(f'extend {extend.get("name")}: prompt is required')
-        check_duration(f'extend {extend.get("name")}', extend.get('duration'))
+        check_duration(f'extend {extend.get("name")}', extend.get('duration'), 10)
         source = clips[previous]
         clips[extend.get('name')] = {'duration': source['duration'] + extend.get('duration', 8),
                                      'resolution': extend.get('resolution', source['resolution'])}

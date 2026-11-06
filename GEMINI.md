@@ -1,6 +1,6 @@
 # Google Vids via useapi.net
 
-This extension connects the hosted useapi.net Google Vids MCP server (`useapi-google-vids`, 18 tools). The tools make Gemini Omni 1.1 Flash video, images, AI avatars from a photo or a description, 30-second talking avatar videos and speech in Google Vids, extend, edit and upscale clips, on your Google AI Plus, Pro or Ultra subscription.
+This extension connects the hosted useapi.net Google Vids MCP server (`useapi-google-vids`, 18 tools). The tools make Gemini Omni 1.2 Flash video of up to 15 seconds, images, AI avatars from a photo or a description, 30-second talking avatar videos and speech in Google Vids, extend, edit and upscale clips, on your Google AI Plus, Pro or Ultra subscription.
 
 - Endpoint: https://api.useapi.net/v1/google-vids/mcp (Streamable HTTP), authorized with the user's useapi.net API token in `USEAPI_TOKEN`.
 - Before the tools work, the user needs a useapi.net API token (https://useapi.net/docs/start-here/setup-useapi) and an account connected at https://useapi.net/docs/start-here/setup-google-vids.

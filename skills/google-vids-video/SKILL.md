@@ -1,6 +1,6 @@
 ---
 name: google-vids-video
-description: Make AI video in Google Vids with Gemini Omni 1.1 Flash through the useapi.net Google Vids API, on the user's Google AI subscription. Creates talking AI avatars (a person drawn from a description, with one of 30 voices) and puts them in clips as an AI influencer, spokesperson or UGC ad presenter; also text-to-video, reference images, start image, extend a clip up to about 41 seconds, upscale to 1080p, edit by prompt, and Vids images. Downloads the .mp4. Use when the user asks for a Google Vids video, a Gemini Omni or Omni Flash clip, an AI avatar or talking-avatar video, an AI influencer or spokesperson video, a UGC-style ad, or to extend or upscale a Vids clip from the command line. Needs curl, jq and a USEAPI_TOKEN environment variable.
+description: Make AI video in Google Vids with Gemini Omni 1.2 Flash through the useapi.net Google Vids API, on the user's Google AI subscription. Creates talking AI avatars (a person drawn from a description, with one of 30 voices) and puts them in clips as an AI influencer, spokesperson or UGC ad presenter; also text-to-video, reference images, start image, extend a clip of up to 24 seconds to about 34 seconds, upscale to 1080p, edit by prompt, and Vids images. Downloads the .mp4. Use when the user asks for a Google Vids video, a Gemini Omni or Omni Flash clip, an AI avatar or talking-avatar video, an AI influencer or spokesperson video, a UGC-style ad, or to extend or upscale a Vids clip from the command line. Needs curl, jq and a USEAPI_TOKEN environment variable.
 license: MIT
 compatibility: Needs bash, curl, jq and network access to api.useapi.net. Requires a useapi.net API token (USEAPI_TOKEN) and a Google account on a paid Google AI subscription (Plus, Pro or Ultra) connected to useapi.net with the Google Vids setup.
 metadata:
@@ -8,7 +8,7 @@ metadata:
   homepage: https://github.com/useapi/google-vids-api
 ---
 
-# Gemini Omni 1.1 Flash video and AI avatars with the useapi.net Google Vids API
+# Gemini Omni 1.2 Flash video and AI avatars with the useapi.net Google Vids API
 
 These scripts call the [useapi.net Google Vids API](https://useapi.net/docs/api-google-vids-v1), a third-party REST API that drives the user's Google Vids account. Every clip spends seconds of the monthly Vids allowance of the user's Google AI subscription. Every script is in `scripts/` next to this file. Run them with bash.
 
@@ -38,14 +38,14 @@ scripts/video.sh "@avatar_1 holds up the mug, smiles and says: \"Honestly the be
 
 ## Costs (the Vids allowance)
 
-Vids meters video in seconds and images by count, per month, separate from Google Flow credits. Google AI Plus gets 60 s, Pro 500 s, Ultra 5x ($99.99) 2,500 s and Ultra 20x ($199.99) 10,000 s of video, and up to 50 / 30 / 300 / 1,000 images. A free Google account gets no video or images (it can still make avatars). Allowances reset on the 1st at 00:00 Pacific.
+Vids meters video in seconds and images by count, per month, separate from Google Flow credits. Google AI Plus gets 60 s, Pro 500 s, Ultra 5x ($99.99) 2,500 s and Ultra 20x ($199.99) 10,000 s of video, and up to 50 / 30 / 300 / 1,000 images. A free Google account had no video or images in our tests (it can still make avatars). Allowances reset on the 1st at 00:00 Pacific.
 
 | Request | Uses |
 |---|---|
 | A clip (`generate.sh`, `video.sh`) | its `duration` in seconds. `720p` and `1080p` cost the same. Avatars and references add nothing |
 | Extend (`extend.sh`) | only the seconds it adds, whatever the clip's length |
 | Upscale (`upscale.sh`) | the clip's full length again (an 8 s clip uses 8 s) |
-| Edit (`edit.sh`) | the length it returns, at most 10 s |
+| Edit (`edit.sh`) | at most the seconds it edits (a 15 s edit used 10 in our tests) |
 | Image (`image.sh`) | 1 image |
 | Avatar from a description | 1 image. From an `image.sh` image: nothing more. Voices are free |
 | A request Google refuses (content `422` or quota `429`) | nothing |
@@ -54,12 +54,12 @@ Every finished job reports what is left (`result.quota`, logged by `wait-job.sh`
 
 ## 720p first, upscale once at the end
 
-A `1080p` clip behaves like an upscaled `720p` one and takes about twice as long. Extending or editing a `1080p` clip makes faces softer and waxier at every step. So:
+A `1080p` clip is an upscaled `720p` one and takes about twice as long. Each extend at `1080p` processes the whole clip again and over-sharpens the seconds already there, until faces look plastic (side-by-side proof: https://useapi.net/blog/261106v#720p-or-1080p-what-a-1080p-extend-does). So give a clip one `1080p` pass, at the end:
 
 - Make, extend and edit at `720p` (the default).
 - When the clip is finished and is **20 seconds or less**, upscale it once with `upscale.sh`. Longer clips are refused (`400`, nothing charged).
-- A single clip that won't be extended or edited can be `resolution=1080p` from the start (same cost).
-- For a `1080p` clip longer than 20 s, set `resolution=1080p` on the last extend only.
+- A single clip that won't be extended or edited can be `resolution=1080p` from the start: it uses the same seconds as `720p`, while an upscale uses them again.
+- For a `1080p` clip of 21 to 34 s (upscale stops at 20 s), set `resolution=1080p` on the last extend only.
 
 ## Avatars
 
@@ -74,7 +74,7 @@ An avatar is a fixed picture of a person plus one of 30 voices, saved in the acc
 ## Writing prompts that work
 
 - **Name references with markers**: `@avatar_1`, `@referenceImage_1`. Each marker needs its parameter. An avatar's name plays no part in the prompt.
-- **Spoken lines go in quotes** after "says:". One or two short sentences per clip of up to 10 s. An avatar speaks in its own voice.
+- **Spoken lines go in quotes** after "says:". One or two short sentences per 10 s of clip. An avatar speaks in its own voice.
 - **Put a prop in a person's hands in the first sentence that mentions them** ("@avatar_1, holding @referenceImage_1 in both hands, ..."). A verb like "lifts" later makes the object appear from nowhere.
 - **Say what must not happen**: "his hands are completely empty", "only these three people are on stage".
 - **Name the camera**: "static tripod shot", "handheld phone camera, natural light" (reads as real UGC), "wide steady shot".
@@ -98,10 +98,10 @@ scripts/wait-job.sh "$J3" > up.json && scripts/download.sh up.json ./out
 | Script | Interface |
 |---|---|
 | `video.sh "<prompt>" [key=value ...]` | generate + wait + download, prints the `.mp4` path |
-| `generate.sh "<prompt>" [key=value ...]` | `duration=3..10` (default 8), `aspectRatio=landscape\|portrait`, `resolution=720p\|1080p`, `avatar_1..3`, `referenceImage_1..3`, `startImage`, `replyUrl`, `replyRef`; prints the job id |
-| `extend.sh <mediaId> "<prompt>" [duration= aspectRatio= resolution=]` | adds 3 to 10 s, returns the whole clip (up to about 41 s); prints the job id |
+| `generate.sh "<prompt>" [key=value ...]` | `duration=3..15` (default 8), `aspectRatio=landscape\|portrait`, `resolution=720p\|1080p`, `avatar_1..3`, `referenceImage_1..3`, `startImage`, `replyUrl`, `replyRef`; prints the job id |
+| `extend.sh <mediaId> "<prompt>" [duration= aspectRatio= resolution=]` | adds 3 to 10 s per call (a longer `duration` is refused), returns the whole clip (sources up to 24 s, so about 34 s at most); prints the job id |
 | `upscale.sh <mediaId>` | 720p clip of up to 20 s to 1080p; prints the job id |
-| `edit.sh <mediaId> "<change>" [duration= aspectRatio= resolution=]` | recolour, add an object, restyle; first 10 s only; prints the job id |
+| `edit.sh <mediaId> "<change>" [duration= aspectRatio= resolution=]` | recolour, add an object, restyle; first 15 s only; prints the job id |
 | `image.sh "<prompt>" [aspectRatio=16:9\|1:1\|9:16] [style=...]` | one JPEG (about 1 MP), saved to `OUT_DIR`; prints the image `mediaId` |
 | `avatar.sh <name> <voice> appearance=... \| image=<mediaId>` | prints the `avatarId`; also `--list`, `--delete <avatarId>`, `--voices` |
 | `wait-job.sh <jobid>` | polls until done, prints the job record; exits 1 on a failed job with a hint |
