@@ -14,12 +14,12 @@ Make a talking AI influencer video through the [Google Vids API](https://useapi.
 - A useapi.net [API token](https://useapi.net/docs/start-here/setup-useapi?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
 - A Google account connected through [Setup Google Vids](https://useapi.net/docs/start-here/setup-google-vids?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api), on a paid Google AI subscription. Every call uses that account's monthly Vids allowance, in seconds of video and a count of images. Google's figures, from the [Plans and monthly allowances](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#plans-and-monthly-allowances) table:
 
-| | Google AI Plus | Google AI Pro | Google AI Ultra 5x | Google AI Ultra 20x |
+| | Google AI Ultra 20x | Google AI Ultra 5x | Google AI Pro | Google AI Plus |
 |---|---|---|---|---|
-| AI video clips | 60 seconds a month | 500 seconds a month | 2,500 seconds a month | 10,000 seconds a month |
-| Image generation and editing | up to 50 a month | 30 a month | 300 a month | 1,000 a month |
+| AI video clips | 10,000 seconds a month | 2,500 seconds a month | 500 seconds a month | 60 seconds a month |
+| Image generation and editing | 1,000 a month | 300 a month | 30 a month | up to 50 a month |
 
-Google AI Ultra $199.99 is the plan Google calls Ultra 20x, and Ultra $99.99 is Ultra 5x. A free Google account gets no Vids allowance for video or images. One useapi.net [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) covers every useapi.net API, with no per-clip charge.
+Google AI Ultra $199.99 is the plan Google calls Ultra 20x, and Ultra $99.99 is Ultra 5x. In our tests a free Google account had no Vids allowance for video or images. One useapi.net [$15/month subscription](https://useapi.net/docs/subscription?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) covers every useapi.net API, with no per-clip charge.
 
 ## Usage
 
