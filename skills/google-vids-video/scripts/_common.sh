@@ -141,7 +141,7 @@ add_kv() {
 # start_job PATH BODY -> POSTs an async job (once, never retried) and prints its job id
 start_job() {
   local job id
-  job=$(api POST "$1" "$(jq '.async = true' <<< "$2")")
+  job=$(api POST "$1" "$(jq '.async = true' <<< "$2")") || exit 1
   id=$(jq -r '.jobid // empty' <<< "$job")
   [ -n "$id" ] || { echo "No job id in the answer: $job" >&2; exit 1; }
   log "job $id"

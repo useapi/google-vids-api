@@ -15,7 +15,7 @@ shift
 BODY=$(jq -n --arg p "$PROMPT" '{prompt: $p}')
 if [ -n "${USEAPI_EMAIL:-}" ]; then BODY=$(jq --arg e "$USEAPI_EMAIL" '.email = $e' <<< "$BODY"); fi
 for KV in "$@"; do BODY=$(add_kv "$BODY" "$KV"); done
-JOBID=$(start_job images "$BODY")
+JOBID=$(start_job images "$BODY") || exit 1
 JOB=$("$DIR/wait-job.sh" "$JOBID") || exit 1
 FILE=$("$DIR/download.sh" - "${OUT_DIR:-.}" <<< "$JOB") && log "saved $FILE" || log "download failed; the mediaId still works for a few hours"
 jq -r .result.mediaId <<< "$JOB"
