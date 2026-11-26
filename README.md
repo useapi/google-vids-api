@@ -94,6 +94,19 @@ The install asks for your useapi.net API token and keeps it in the system keycha
 - [How to Use the Gemini Omni 1.2 Flash API: 15-Second Videos in Google Flow and Google Vids](https://useapi.net/docs/articles/gemini-omni-1-2-flash-api?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) · Also in [中文](https://useapi.net/docs/articles/gemini-omni-1-2-flash-api-zh?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
 - All articles: [useapi.net articles](https://useapi.net/docs/articles?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
 
+## One Google AI plan, four APIs
+
+The same Google account and Google AI plan (Plus, Pro or Ultra) run four useapi.net APIs. Each one spends its own allowance (Flow credits, Vids seconds, Notebook usage, Flow Music credits), so none takes from another, and one useapi.net subscription covers all four.
+
+| API | What it makes | Examples | Docs |
+|---|---|---|---|
+| Google Flow | Veo 3.1 and Omni 1.2 Flash video, Nano Banana images, Google Flow Agent chat | [useapi/google-flow-api](https://github.com/useapi/google-flow-api) | [Google Flow API](https://useapi.net/docs/api-google-flow-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) |
+| **Google Vids** | Omni 1.2 Flash video and voiced AI avatars, from Vids' own monthly allowance, no captcha | this repo | [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) |
+| Gemini Notebook (NotebookLM) | Podcasts, video overviews and Deep Research from web pages, PDFs and YouTube | [useapi/notebooklm-api](https://github.com/useapi/notebooklm-api) | [Gemini Notebook (NotebookLM) API](https://useapi.net/docs/api-gemini-notebook-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) |
+| Google Flow Music | Full songs with Lyria 3.5 and Lyria 3 Pro | [useapi/flowmusic-api](https://github.com/useapi/flowmusic-api) | [Google Flow Music API](https://useapi.net/docs/api-flowmusic-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) |
+
+What each plan makes in a month across all four: [Can You Use Your Google AI Subscription Through an API?](https://useapi.net/docs/articles/google-ai-subscription-api?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api#one-account)
+
 ## Common questions
 
 <!-- Figures as on the useapi.net Google Vids API overview (docs/api-google-vids-v1/index.md). Official, re-read on the overview 2026-11-06: https://ai.google.dev/gemini-api/docs/pricing, now https://aistudio.google.com/docs/pricing (Omni 1.2 Flash $12.00 per 1M video output tokens at 5,792 tokens per 720p second = ~$0.70 per 10 s, the page's own figure, and $0.104 per 1080p second = $1.56 per 15 s. Was 1.1 Flash $17.50 = ~$1.01). Vids: Ultra $199.99 = 10,000 s/month = ~$0.20 per 10 s, ~$0.30 per 15 s at 720p or 1080p. Allowances (https://support.google.com/docs/answer/15609411, read 2026-10-21, re-read 2026-11-06): Plus 60 s and up to 50 images, Pro 500 s and 30, Ultra $99.99 2,500 s and 300, Ultra $199.99 10,000 s and 1,000. No public Google Vids developer API (Google Workspace developer docs). The useapi.net subscription is not part of the per-clip math. -->
