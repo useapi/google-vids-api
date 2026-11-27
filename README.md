@@ -130,6 +130,8 @@ What each plan makes in a month across all four: [Can You Use Your Google AI Sub
 
 中文教程（数字人、视频延长、无需验证码，含 curl 示例）：[如何通过 Google Vids API 用 Gemini Omni 1.2 Flash 生成会说话的数字人视频](https://useapi.net/docs/articles/google-vids-api-zh?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)。完整文档：[Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)。
 
+Google Vids 现在能用吗？查看[状态页面](https://useapi.net/status?api=google-vids&utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)。
+
 ## 日本語の説明
 
 [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) の Google Vids API のサンプルです。サードパーティの REST API で、Google Vids の Gemini Omni 1.2 Flash を使って最長15秒の動画を生成し、声付きのアバター、参照画像、最長約34秒までの延長、1080p へのアップスケールに対応しています。
@@ -141,6 +143,8 @@ What each plan makes in a month across all four: [Can You Use Your Google AI Sub
 - サンプルでは、2体の声付きアバターが商品を紹介する30秒の動画を作り、写真から作ったアバターに最長30秒の台本を読ませ、30種類の Gemini の声で音声を作ります。`watermark-remover/` は、動画の右下に見える Gemini の ✦ を消します（目に見えない SynthID の透かしには手を加えません）。
 
 日本語の記事：[Google Vids API でアバターを使った AI インフルエンサー動画を作る方法](https://useapi.net/docs/articles/google-vids-influencer-avatars-ja?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)、[Gemini Omni 1.2 Flash API の使い方：Google Flow と Google Vids で15秒の動画を生成](https://useapi.net/docs/articles/gemini-omni-1-2-flash-api-ja?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)。ドキュメント全体：[Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)。
+
+Google Vids は今動いていますか？[ステータスページ](https://useapi.net/status?api=google-vids&utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)をご覧ください。
 
 ## Sobre este repositório
 
@@ -154,6 +158,8 @@ Exemplos da Google Vids API da [useapi.net](https://useapi.net/?utm_source=githu
 
 Artigos em português: [Como fazer vídeos de influenciador com IA usando avatares pela Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars-pt?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) e [Como usar a API do Gemini Omni 1.2 Flash](https://useapi.net/docs/articles/gemini-omni-1-2-flash-api-pt?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api). Documentação completa: [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
 
+O Google Vids está funcionando agora? Veja a [página de status](https://useapi.net/status?api=google-vids&utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
+
 ## Về repo này
 
 Ví dụ cho Google Vids API của [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api), một REST API của bên thứ ba chạy Gemini Omni 1.2 Flash trong Google Vids: video dài tới 15 giây với avatar có giọng nói, ảnh tham chiếu, kéo dài tới khoảng 34 giây và upscale lên 1080p, video avatar biết nói từ một bức ảnh, và giọng nói với 30 giọng Gemini.
@@ -165,6 +171,8 @@ Ví dụ cho Google Vids API của [useapi.net](https://useapi.net/?utm_source=g
 - Các ví dụ cho hai avatar có giọng nói giới thiệu sản phẩm trong một clip kéo dài lên 30 giây, biến một bức ảnh thành avatar đọc kịch bản của bạn trong video 30 giây, đọc một câu chuyện thành file giọng nói, và gỡ dấu ✦ Gemini nhìn thấy được khỏi video (không động tới watermark SynthID vô hình).
 
 Bài viết tiếng Việt: [Cách làm video người có ảnh hưởng AI với avatar qua Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars-vi?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) và [Cách dùng Gemini Omni 1.2 Flash API: video 15 giây trong Google Flow và Google Vids](https://useapi.net/docs/articles/gemini-omni-1-2-flash-api-vi?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api). Tài liệu đầy đủ: [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
+
+Google Vids hiện có đang hoạt động không? Xem [trang trạng thái](https://useapi.net/status?api=google-vids&utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
 
 ## Tentang repo ini
 
@@ -178,6 +186,8 @@ Ini adalah contoh kode Google Vids API dari [useapi.net](https://useapi.net/?utm
 
 Artikel bahasa Indonesia: [Cara Membuat Video Influencer AI dengan Avatar lewat Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars-id?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) dan [Cara Memakai Gemini Omni 1.2 Flash API: Video 15 Detik di Google Flow dan Google Vids](https://useapi.net/docs/articles/gemini-omni-1-2-flash-api-id?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api). Dokumentasi lengkap: [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
 
+Apakah Google Vids sedang berfungsi sekarang? Lihat [halaman status](https://useapi.net/status?api=google-vids&utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
+
 ## เกี่ยวกับ repo นี้
 
 นี่คือตัวอย่างโค้ด Node.js และ Python สำหรับ Google Vids API ของ [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) ซึ่งเป็น API ของบุคคลที่สาม ใช้สร้างวิดีโอ Gemini Omni 1.2 Flash ยาวสูงสุด 15 วินาทีใน Google Vids พร้อมอวตารที่มีเสียงพูด ภาพอ้างอิง การต่อความยาว (ยาวได้ราว 34 วินาที) และการอัปสเกลเป็น 1080p
@@ -190,9 +200,13 @@ Artikel bahasa Indonesia: [Cara Membuat Video Influencer AI dengan Avatar lewat 
 
 บทความภาษาไทย: [วิธีสร้างวิดีโอ AI Influencer ด้วยอวตารผ่าน Google Vids API](https://useapi.net/docs/articles/google-vids-influencer-avatars-th?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) และ [วิธีใช้ Gemini Omni 1.2 Flash API: วิดีโอ 15 วินาทีใน Google Flow และ Google Vids](https://useapi.net/docs/articles/gemini-omni-1-2-flash-api-th?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) เอกสารฉบับเต็ม: [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
 
+Google Vids ใช้งานได้ตอนนี้ไหม ดู[หน้าสถานะ](https://useapi.net/status?api=google-vids&utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api)
+
 ## About useapi.net
 
 [useapi.net](https://useapi.net/?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) is a third-party REST API for AI services, not affiliated with Google. The [Google Vids API](https://useapi.net/docs/api-google-vids-v1?utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api) runs on your Google AI subscription, so you spend its monthly Vids allowance instead of paying metered developer-API prices.
+
+Is Google Vids working right now? See the [status page](https://useapi.net/status?api=google-vids&utm_source=github.com&utm_medium=referral&utm_campaign=google-vids-api).
 
 Visit our [Discord Server](https://discord.gg/w28uK3cnmF) or [Telegram Channel](https://t.me/use_api) for any support questions and concerns.
 
